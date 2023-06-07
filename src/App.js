@@ -9,39 +9,37 @@ function App() {
     <div>
       <h1>Freeshelf</h1>
       <ul>
-      {bookData.map((book) => (
-        <ul>
-        <h1 class="title">{book.title}</h1>
-        <h3 class="author">{book.author}</h3>
-        <h4 class="description">{book.shortDescription}</h4>
-        <div><img src={book.coverImageUrl}></img></div>
-        </ul>
-      ))}
+      {bookData.map((book) => <BookInfo bookObject={book} />)}    
       </ul>
       {/* Use bookData to show books on the page*/}
     </div>
   )}
 
-  function Dev(props) {
+  function BookInfo(props) {
     const [expanded, setExpanded] = useState(false)
 
     return(
-      <li>
-        <p>{props.bookData}</p>
+      <ul class="card">
+        <h1 class="title">{props.bookObject.title}</h1>
+        <h3 class="author">{props.bookObject.author}</h3>
+        <h4 class="description">{props.bookObject.shortDescription}</h4>
+        <div><img class="image" src={props.bookObject.coverImageUrl}></img></div>
         <button onClick={() => setExpanded(!expanded)}>
           { expanded ? "Show Less" : "Show More"}
         </button>
         {expanded && (
           <div>
             <ul>
-              {bookData.map((book) => (
-              <h4>{book.url}</h4>
-              ))}
+              <h4>{props.bookObject.url}</h4>
+              <h4>{props.bookObject.publisher}</h4>
+              <h4>{props.bookObject.publicationDate}</h4>
+              <h4>{props.bookObject.detailedDescription}</h4>
             </ul>
           </div>
         )}
-      </li>
+      </ul>
     )
   }
+
 
   export default App

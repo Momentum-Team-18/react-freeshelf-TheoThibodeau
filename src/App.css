@@ -1,1 +1,7 @@
+.card {
+    border: 2px black;
+}
 
+.image {
+    width: 200px;
+}
