@@ -1,7 +1,9 @@
-.card {
+.container{
+    margin: 20px;
+    padding: 30px;
     border: 2px black;
 }
 
 .image {
-    width: 200px;
+    height: 200px;
 }

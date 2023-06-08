@@ -7,7 +7,6 @@ function App() {
 
   return (
     <div>
-      <h1>Freeshelf</h1>
       <ul>
       {bookData.map((book) => <BookInfo bookObject={book} />)}    
       </ul>
@@ -19,6 +18,7 @@ function App() {
     const [expanded, setExpanded] = useState(false)
 
     return(
+    <div class="container">  
       <ul class="card">
         <h1 class="title">{props.bookObject.title}</h1>
         <h3 class="author">{props.bookObject.author}</h3>
@@ -38,6 +38,7 @@ function App() {
           </div>
         )}
       </ul>
+      </div>
     )
   }
 
